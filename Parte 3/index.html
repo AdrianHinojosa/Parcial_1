@@ -1,3 +1,4 @@
+<!-- Adrián Hinojosa: A00822490 -->
 <!DOCTYPE html>
 <html>
 <head>
@@ -31,17 +32,40 @@ Crea una funcion llamada: challenge1  que realice lo siguiente:
 
 // CREA TU FUNCION challenge1 aqui 
 
+function challenge1() {
+    let iNumButtons = prompt("Favor de teclear un número con la cantidad de botones que se necesitan");
+    while (isNaN(Number(iNumButtons))) {
+        iNumButtons = prompt("Favor de teclear un número con la cantidad de botones que se necesitan");
+    }
+    for (var iCount = 0; iCount < iNumButtons; iCount++) 
+    {
+        // Obtener referencia al ID.
+        var myDummy = document.getElementById("dummy");
+        // crear un elemento Button utilizando el método (CreateElement)
+        var newButton = document.createElement("button");
+        // Asignarle el nombre correspondinete al arreglo en esa iteración
+        newButton.innerHTML = nombres[iCount];
+        // Agregar el elmento como hijo del div "dummy".
+        myDummy.appendChild(newButton);
+    }
+}
+
 
 
 // ************** PARTE 2    **************
 
 /** 
 Crea una funcion llamada: challenge2 que utilizando un FOR convierta todos los nombres a mayusula y los escriba en la consola
-
 **/
 
 // CREA TU FUNCION challenge2 2 aquí.
-
+function challenge2() {
+    // Iterate through the names array and print each name in upper case
+    for(var iCount = 0; iCount < nombres.length; iCount++){
+        let sNameUpperCase = nombres[iCount].toUpperCase();
+        console.log(sNameUpperCase);
+    }
+}
 
 
 // ************** PARTE 3    **************
@@ -57,7 +81,6 @@ A) Escribe un constructor que te permita generar objetos de tipo "Dog" que recib
 
 B) Utilizando el constructor crea 3 objectos con diferentes valores y escribe en consola cada objeto.
 
-
 *****BONUS**** 10  puntos
 
 Crea una método llamado printInfo()  que escriba en consola todas las propiedades del objeto que lo invoca. 
@@ -68,8 +91,27 @@ Invoca la función para validar su funcionalidad.
 
 */
 
+// Parte A
+function Dog(sName, sColor, sBreed) {
+  this.sName = sName;
+  this.sColor = sColor;
+  this.sBreed = sBreed;
+}
 
+// Parte B
+function challenge3() {
+    let DogOne = new Dog("Adrián", "Blue", "Samoyed");
+    let DogTwo = new Dog("Apolo", "Yellow", "Pomsky");
+    let DogThree = new Dog("Kira", "Gray", "Husky");
+    printInfo(DogOne);
+    printInfo(DogTwo);
+    printInfo(DogThree);
+}
 
+function printInfo(Dog) {
+    console.log("Printing Dog:")
+    console.log("Dog Name: " + Dog.sName + " Dog Color: " +  Dog.sColor + " Dog Breed: "  + Dog.sBreed);
+}
 
 
 </script>
@@ -80,13 +122,12 @@ Invoca la función para validar su funcionalidad.
 
     <button onclick="challenge1()">Challenge 1</button>
     <button onclick="challenge2()">Challenge 2</button>
-    <button onclick="challenge3()">Challenge 2</button>
+    <button onclick="challenge3()">Challenge 3</button>
 
   
 <div id = "dummy">
 
 </div>
- 
 
 
 </body>
