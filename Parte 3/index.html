@@ -31,9 +31,9 @@ Crea una funcion llamada: challenge1  que realice lo siguiente:
 **/
 
 // CREA TU FUNCION challenge1 aqui 
-
 function challenge1() {
     let iNumButtons = prompt("Favor de teclear un número con la cantidad de botones que se necesitan");
+    // Validar que el input sea un número.
     while (isNaN(Number(iNumButtons))) {
         iNumButtons = prompt("Favor de teclear un número con la cantidad de botones que se necesitan");
     }
@@ -92,6 +92,7 @@ Invoca la función para validar su funcionalidad.
 */
 
 // Parte A
+// Constructor de Dog
 function Dog(sName, sColor, sBreed) {
   this.sName = sName;
   this.sColor = sColor;
@@ -99,6 +100,7 @@ function Dog(sName, sColor, sBreed) {
 }
 
 // Parte B
+// Crear función para crear los 3 objetos Dog e imprimirlos en consola con la función printInfo.
 function challenge3() {
     let DogOne = new Dog("Adrián", "Blue", "Samoyed");
     let DogTwo = new Dog("Apolo", "Yellow", "Pomsky");
@@ -108,6 +110,8 @@ function challenge3() {
     printInfo(DogThree);
 }
 
+// Función para imprimir los objetos de tipo Dog en consola. No se valida que el parámetro sea Dog
+// en caso de no ser de tipo Dog va a dar undefined. Sin embargo, se pudiera llegar a validar.
 function printInfo(Dog) {
     console.log("Printing Dog:")
     console.log("Dog Name: " + Dog.sName + " Dog Color: " +  Dog.sColor + " Dog Breed: "  + Dog.sBreed);
